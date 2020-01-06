@@ -1,5 +1,7 @@
 name: "Wait for Netlify"
 description: "Wait for Netlify Deploy Preview to complete"
+icon: "clock"
+color: "blue"
 inputs:
   site_name:
     description: "The Netlify site name to test against"
