@@ -30,6 +30,7 @@ const run = async () => {
       core.setFailed("Required field `site_name` was not provided");
     }
     const url = `https://deploy-preview-${PR_NUMBER}--${siteName}.netlify.com`;
+    core.setOutput("url", url);
     console.log(`Waiting for a 200 from: ${url}`);
     await waitForUrl(url, MAX_TIMEOUT);
   } catch (error) {
