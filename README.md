@@ -17,7 +17,7 @@ Optional — The amount of time to spend waiting on Netlify. Defaults to `60` se
 ```
 steps:
   - name: Waiting for 200 from the Netlify Preview
-    uses: actions/wait-for-netlify-action@v1
+    uses: jakepartusch/wait-for-netlify-action@v1
     id: waitFor200
     with:
       site_name: "jakepartusch"
