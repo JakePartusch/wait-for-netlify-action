@@ -1,21 +1,25 @@
-# Hello world javascript action
+# Wait for Netlify GitHub Action 🎉
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+Do you have other Github actions (Lighthouse, Cypress, etc) that depend on the Netlify Preview URL? This action will wait until the url is available before running the next task.
 
 ## Inputs
 
-### `who-to-greet`
+### `site_name`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** The name of the Netlify site to reach `https://{site_name}.netlify.com`
 
-## Outputs
+### `max_timeout`
 
-### `time`
-
-The time we greeted you.
+Optional — The amount of time to spend waiting on Netlify. Defaults to `60` seconds
 
 ## Example usage
 
-uses: actions/hello-world-javascript-action@v1
-with:
-who-to-greet: 'Mona the Octocat'
+```
+steps:
+  - name: Waiting for 200 from the Netlify Preview
+    uses: actions/wait-for-netlify-action@v1
+    id: waitFor200
+    with:
+      site_name: "jakepartusch"
+      max_timeout: 60
+```
