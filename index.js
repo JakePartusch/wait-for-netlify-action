@@ -15,13 +15,17 @@ const waitForUrl = async url => {
   }
 };
 
-try {
-  const url = core.getInput("url");
-  console.log(`Waiting for a 200 from: ${url}`);
-  await waitForUrl(url);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
-}
+const run = async () => {
+  try {
+    const url = core.getInput("url");
+    console.log(`Waiting for a 200 from: ${url}`);
+    await waitForUrl(url);
+    // Get the JSON webhook payload for the event that triggered the workflow
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
+    console.log(`The event payload: ${payload}`);
+  } catch (error) {
+    core.setFailed(error.message);
+  }
+};
+
+run();
