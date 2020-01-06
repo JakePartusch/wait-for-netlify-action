@@ -13,3 +13,8 @@ jobs:
         id: waitFor200
         with:
           url: "https://jake.partus.ch"
+      - name: Should timeout for non-existant url
+        uses: ./ # Uses an action in the root directory
+        id: waitFor404
+        with:
+          url: "https://askldsdjklflkjasdf.com"
