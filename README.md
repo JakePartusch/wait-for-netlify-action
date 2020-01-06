@@ -1,4 +1,4 @@
-# Wait for Netlify GitHub Action 🎉
+# Wait for Netlify — A GitHub Action 🎉
 
 Do you have other Github actions (Lighthouse, Cypress, etc) that depend on the Netlify Preview URL? This action will wait until the url is available before running the next task.
 
