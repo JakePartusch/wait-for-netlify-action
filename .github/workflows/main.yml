@@ -1,20 +1,15 @@
-on: [push]
+on: [pull_request]
 
 jobs:
-  hello_world_job:
+  wait_for_netlify:
     runs-on: ubuntu-latest
     name: A job to test this action
     steps:
-      # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v1
       - name: Waiting for 200 response
         uses: ./ # Uses an action in the root directory
         id: waitFor200
         with:
-          url: "https://jake.partus.ch"
-      - name: Should timeout for non-existant url
-        uses: ./ # Uses an action in the root directory
-        id: waitFor404
-        with:
-          url: "https://askldsdjklflkjasdf.com"
+          site_name: "jakepartusch"
+          max_timeout: 60
