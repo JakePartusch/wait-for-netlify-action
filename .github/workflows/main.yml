@@ -13,8 +13,4 @@ jobs:
         id: waitFor200
         with:
           site_name: "jakepartusch"
-      - name: Should timeout for non-existant url
-        uses: ./ # Uses an action in the root directory
-        id: waitFor404
-        with:
-          url: "https://askldsdjklflkjasdf.com"
+          max_timeout: 60
