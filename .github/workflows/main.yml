@@ -12,7 +12,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: waitFor200
         with:
-          url: "https://deploy-preview-54--jakepartusch.netlify.com/"
+          site_name: "jakepartusch"
       - name: Should timeout for non-existant url
         uses: ./ # Uses an action in the root directory
         id: waitFor404

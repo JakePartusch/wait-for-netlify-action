@@ -17,12 +17,11 @@ const waitForUrl = async url => {
 
 const run = async () => {
   try {
-    const url = core.getInput("url");
+    const PR_NUMBER = github.context.payload.number;
+    const siteName = core.getInput("site_name");
+    const url = `https://deploy-preview-${PR_NUMBER}--${siteName}.netlify.com`;
     console.log(`Waiting for a 200 from: ${url}`);
     await waitForUrl(url);
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
-    console.log(`The event payload: ${payload}`);
   } catch (error) {
     core.setFailed(error.message);
   }
