@@ -1,4 +1,4 @@
-on: [push]
+on: [pull_request]
 
 jobs:
   hello_world_job:
@@ -12,7 +12,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: waitFor200
         with:
-          url: "https://jake.partus.ch"
+          url: "https://deploy-preview-54--jakepartusch.netlify.com/"
       - name: Should timeout for non-existant url
         uses: ./ # Uses an action in the root directory
         id: waitFor404
