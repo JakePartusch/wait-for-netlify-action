@@ -11,5 +11,5 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: waitFor200
         with:
-          site_name: "jakepartusch"
+          site_name: "happy-kilby-80bc73"
           max_timeout: 60

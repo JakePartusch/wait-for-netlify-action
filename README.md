@@ -6,7 +6,7 @@ Do you have other Github actions (Lighthouse, Cypress, etc) that depend on the N
 
 ### `site_name`
 
-**Required** The name of the Netlify site to reach `https://{site_name}.netlify.com`
+**Required** The name of the Netlify site to reach `https://{site_name}.netlify.app`
 
 ### `max_timeout`
 
