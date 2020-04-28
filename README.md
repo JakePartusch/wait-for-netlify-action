@@ -8,6 +8,10 @@ Do you have other Github actions (Lighthouse, Cypress, etc) that depend on the N
 
 **Required** The name of the Netlify site to reach `https://{site_name}.netlify.app`
 
+### `request_headers`
+
+Optional — Stringified HTTP Header object key/value pairs to send in requests (eg. `'{ "Authorization": "Basic YWxhZGRpbjpvcGVuc2VzYW1l }'`)
+
 ### `max_timeout`
 
 Optional — The amount of time to spend waiting on Netlify. Defaults to `60` seconds

@@ -7,6 +7,9 @@ inputs:
   site_name:
     description: "The Netlify site name to test against"
     required: true
+  request_headers:
+    description: "Stringified HTTP Header object key/value pairs to send in requests"
+    required: false
   max_timeout:
     description: "The max time to run the action"
     required: false
