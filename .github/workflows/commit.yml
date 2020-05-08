@@ -1,0 +1,15 @@
+on: [push]
+
+jobs:
+  wait_for_netlify:
+    runs-on: ubuntu-latest
+    name: A job to test this action
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Waiting for 200 response
+        uses: ./ # Uses an action in the root directory
+        id: waitFor200
+        with:
+          site_name: "happy-kilby-80bc73"
+          max_timeout: 60

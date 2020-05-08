@@ -18,7 +18,9 @@ const waitForUrl = async (url, MAX_TIMEOUT) => {
 
 const run = async () => {
   try {
-    const COMMIT_HASH = github.context.payload.head;
+    const COMMIT_HASH =
+      github.context.payload.head ||
+      github.context.payload.pull_request.head.sha;
     const MAX_TIMEOUT = Number(core.getInput("max_timeout")) || 60;
     const siteName = core.getInput("site_name");
     if (!siteName) {
