@@ -18,6 +18,7 @@ const waitForUrl = async (url, MAX_TIMEOUT) => {
 
 const run = async () => {
   try {
+    console.log(json.stringify(github.context));
     const COMMIT_HASH =
       github.context.payload.head ||
       github.context.payload.pull_request.head.sha;
