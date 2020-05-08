@@ -25,10 +25,9 @@ Basic Usage
 ```yaml
 steps:
   - name: Waiting for 200 from the Netlify Preview
-    uses: jakepartusch/wait-for-netlify-action@v1
-    id: waitFor200
+    uses: jakepartusch/wait-for-netlify-action@v2.0
     with:
-      site_name: "jakepartusch"
+      site_name: "YOUR_SITE"
       max_timeout: 60
 ```
 
@@ -58,14 +57,14 @@ jobs:
         run: |
           npm run build
       - name: Waiting for 200 from the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1
-        id: waitFor200
+        uses: jakepartusch/wait-for-netlify-action@v2.0
+        id: wait-for-netflify
         with:
           site_name: "jakepartusch"
       - name: Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.3.x
-          lhci autorun --upload.target=temporary-public-storage --collect.url=${{ steps.waitFor200.outputs.url }} || echo "LHCI failed!"
+          lhci autorun --upload.target=temporary-public-storage --collect.url=${{ steps.wait-for-netflify.outputs.url }} || echo "LHCI failed!"
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 ```
