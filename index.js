@@ -25,6 +25,7 @@ const run = async () => {
       core.setFailed("Required field `site_name` was not provided");
     }
     const url = `https://${COMMIT_HASH}--${siteName}.netlify.app`;
+    console.log(url);
     core.setOutput("url", url);
     console.log(`Waiting for a 200 from: ${url}`);
     await waitForUrl(url, MAX_TIMEOUT);
