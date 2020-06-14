@@ -19,17 +19,27 @@ const waitForUrl = async (url, MAX_TIMEOUT, { headers }) => {
 const run = async () => {
   try {
     const PR_NUMBER = github.context.payload.number;
-    if (!PR_NUMBER) {
+    // Netlify only uses 24 characters of the sha for the deploy preview
+    const SHA = github.context.sha.substring(0, 24);
+
+    const MAX_TIMEOUT = Number(core.getInput("max_timeout")) || 60;
+    const useCommitPreview = Boolean(core.getInput('use_commit_preview') || false);
+    const siteName = core.getInput("site_name");
+
+    if (!useCommitPreview && !PR_NUMBER) {
       core.setFailed(
         "Action must be run in conjunction with the `pull_request` event"
       );
     }
-    const MAX_TIMEOUT = Number(core.getInput("max_timeout")) || 60;
-    const siteName = core.getInput("site_name");
     if (!siteName) {
       core.setFailed("Required field `site_name` was not provided");
     }
-    const url = `https://deploy-preview-${PR_NUMBER}--${siteName}.netlify.app`;
+
+    let url = `https://deploy-preview-${PR_NUMBER}--${siteName}.netlify.app`;
+    if (useCommitPreview) {
+      url = `https://${SHA}--${siteName}.netlify.app`;
+    }
+
     core.setOutput("url", url);
     const extraHeaders = core.getInput("request_headers");
     const headers = !extraHeaders ? {} : JSON.parse(extraHeaders)

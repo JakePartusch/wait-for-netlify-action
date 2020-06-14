@@ -16,6 +16,10 @@ Optional — Stringified HTTP Header object key/value pairs to send in requests 
 
 Optional — The amount of time to spend waiting on Netlify. Defaults to `60` seconds
 
+### `use_commit_preview`
+
+Optional - Whether it should use the commit preview url address. Defaults to `false`
+
 ## Outputs
 
 ### `url`
