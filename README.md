@@ -29,7 +29,7 @@ Basic Usage
 ```yaml
 steps:
   - name: Waiting for 200 from the Netlify Preview
-    uses: jakepartusch/wait-for-netlify-action@v1
+    uses: jakepartusch/wait-for-netlify-action@v1.2
     id: waitFor200
     with:
       site_name: "jakepartusch"
