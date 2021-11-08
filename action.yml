@@ -13,6 +13,10 @@ inputs:
   max_timeout:
     description: "The max time to run the action"
     required: false
+  base_path:
+    description: "Base path to test"
+    required: false
+    default: "/"
 outputs:
   url:
     description: "The fully qualified deploy preview URL"
