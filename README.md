@@ -16,6 +16,10 @@ Optional — Stringified HTTP Header object key/value pairs to send in requests 
 
 Optional — The amount of time to spend waiting on Netlify. Defaults to `60` seconds
 
+### `base_path`
+
+Optional — The page that needs to be tested for 200. Defaults to "/" (eg: `https://{site_name}.netlify.app{base_path}`)
+
 ## Outputs
 
 ### `url`

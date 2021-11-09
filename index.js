@@ -26,10 +26,11 @@ const run = async () => {
     }
     const MAX_TIMEOUT = Number(core.getInput("max_timeout")) || 60;
     const siteName = core.getInput("site_name");
+    const basePath = core.getInput("base_path");
     if (!siteName) {
       core.setFailed("Required field `site_name` was not provided");
     }
-    const url = `https://deploy-preview-${PR_NUMBER}--${siteName}.netlify.app`;
+    const url = `https://deploy-preview-${PR_NUMBER}--${siteName}.netlify.app${basePath}`;
     core.setOutput("url", url);
     const extraHeaders = core.getInput("request_headers");
     const headers = !extraHeaders ? {} : JSON.parse(extraHeaders)
