@@ -33,7 +33,7 @@ Basic Usage
 ```yaml
 steps:
   - name: Waiting for 200 from the Netlify Preview
-    uses: jakepartusch/wait-for-netlify-action@v1.2
+    uses: jakepartusch/wait-for-netlify-action@v1.3
     id: waitFor200
     with:
       site_name: "jakepartusch"
@@ -66,7 +66,7 @@ jobs:
         run: |
           npm run build
       - name: Waiting for 200 from the Netlify Preview
-        uses: jakepartusch/wait-for-netlify-action@v1.2
+        uses: jakepartusch/wait-for-netlify-action@v1.3
         id: waitFor200
         with:
           site_name: "jakepartusch"
